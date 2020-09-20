@@ -27,6 +27,7 @@
  // INCLUDES
 #include <string>
 #include <tinynurbs>
+#include <glm>
 #include "Function.h"
 #include "FunctionAdapter.h"
 #include "check.h"
@@ -260,6 +261,7 @@ namespace OpenSim {
 				}
 
 		};
+		}
 		virtual ~NURBSsurface() {};
 
 		//--------------------------------------------------------------------------
@@ -275,18 +277,12 @@ namespace OpenSim {
 			if (n == 0) {
 				return calcValue(x);
 			}
-			if (n > 0) { // This is incorrect, I need to change this so if you're reading this, please ignore the fact that it doesnt work
+			if (n > 0) { // Not sure if this is how tinynurbs:surfaceDerivatives works, or if that even is how you call an element of a glm::vec
 				int partial = derivComponents[0];
-				int partime = 0;
-				if (partial == 0) {
-					partime = 1;
-				}
-				if (partial == 1) {
-					partime = 0;
-				}
+					
 
 				array2<glm::vec<3, T>> derivs = tinynurbs::surfaceDerivatives(srf, n, x[0], x[1]);
-				return (derivs(partial,partime));
+				return (derivs(x[0], x[1])[partial]);
 			}
 
 			else {
