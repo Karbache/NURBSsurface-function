@@ -26,6 +26,7 @@
 
  // INCLUDES
 #include <string>
+#include <tinynurbs>
 #include "Function.h"
 #include "FunctionAdapter.h"
 #include "check.h"
