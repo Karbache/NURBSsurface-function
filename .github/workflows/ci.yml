@@ -1,0 +1,20 @@
+on: [push]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Get Dependencies
+      run: sudo apt-get install build-essential cmake libglm-dev
+
+    - name: Get Submodules
+      run: cd $GITHUB_WORKSPACE && git submodule update --init
+
+    - name: Configure
+      run: cd $GITHUB_WORKSPACE && mkdir -p build/ && cd build/ && cmake ..
+
+    - name: Build
+      run: cd $GITHUB_WORKSPACE/build && make

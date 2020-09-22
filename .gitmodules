@@ -1,0 +1,3 @@
+[submodule "tinynurbs"]
+	path = tinynurbs
+	url = ../../pradeep-pyro/tinynurbs.git
