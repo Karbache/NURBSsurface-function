@@ -26,12 +26,13 @@
 
  // INCLUDES
 #include <string>
-#include <tinynurbs>
-#include <glm>
-#include "Function.h"
-#include "FunctionAdapter.h"
-#include "check.h"
-#include "evaluate.h"
+#include "tinynurbs/tinynurbs.h"
+#include "glm/glm.hpp"
+#include "OpenSim/Common/Function.h"
+#include "OpenSim/Common/FunctionAdapter.h"
+
+//#include "check.h"
+//#include "evaluate.h"
 
 
 
